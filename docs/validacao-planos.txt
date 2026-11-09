@@ -1,0 +1,2 @@
+plano-jornadas.json OK (4 jornadas, 12+8+11+12 passos, 6217 bytes)
+plano-com-falha.json OK (2 jornadas, 12+5 passos, 2555 bytes)
