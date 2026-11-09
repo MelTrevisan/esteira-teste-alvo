@@ -1,0 +1,17 @@
+{
+  "name": "eventos-gx2-demo-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API do app de demonstração Eventos GX2 Demo",
+  "type": "commonjs",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node -e \"console.log('api sem etapa de build')\"",
+    "migrate": "node src/migrate.js",
+    "seed": "node src/seed.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "pg": "^8.23.1"
+  }
+}
