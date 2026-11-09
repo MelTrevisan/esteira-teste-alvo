@@ -1,0 +1,288 @@
+{
+  "v": 1,
+  "journeys": [
+    {
+      "id": "J-001",
+      "title": "Criar um evento",
+      "actor": "Organizadora de eventos",
+      "stories": [
+        "US-001"
+      ],
+      "reqs": [
+        "REQ-001"
+      ],
+      "steps": [
+        {
+          "n": 1,
+          "action": "open_screen",
+          "screen": "/"
+        },
+        {
+          "n": 2,
+          "action": "assert_visible",
+          "target": "titulo-lista"
+        },
+        {
+          "n": 3,
+          "action": "click",
+          "target": "novo-evento"
+        },
+        {
+          "n": 4,
+          "action": "assert_visible",
+          "target": "titulo-novo-evento"
+        },
+        {
+          "n": 5,
+          "action": "fill",
+          "target": "campo-titulo",
+          "data_key": "text_short"
+        },
+        {
+          "n": 6,
+          "action": "fill",
+          "target": "campo-data",
+          "data_key": "date_iso"
+        },
+        {
+          "n": 7,
+          "action": "fill",
+          "target": "campo-local",
+          "data_key": "text_short"
+        },
+        {
+          "n": 8,
+          "action": "fill",
+          "target": "campo-vagas",
+          "data_key": "integer_small"
+        },
+        {
+          "n": 9,
+          "action": "click",
+          "target": "salvar-evento"
+        },
+        {
+          "n": 10,
+          "action": "assert_visible",
+          "target": "mensagem-sucesso"
+        },
+        {
+          "n": 11,
+          "action": "assert_text",
+          "target": "mensagem-sucesso",
+          "text": "Evento criado com sucesso."
+        },
+        {
+          "n": 12,
+          "action": "assert_visible",
+          "target": "evento-titulo"
+        }
+      ]
+    },
+    {
+      "id": "J-002",
+      "title": "Inscrever um participante",
+      "actor": "Participante",
+      "stories": [
+        "US-002"
+      ],
+      "reqs": [
+        "REQ-002"
+      ],
+      "steps": [
+        {
+          "n": 1,
+          "action": "open_screen",
+          "screen": "/"
+        },
+        {
+          "n": 2,
+          "action": "click",
+          "target": "evento-link-2"
+        },
+        {
+          "n": 3,
+          "action": "assert_visible",
+          "target": "evento-titulo"
+        },
+        {
+          "n": 4,
+          "action": "fill",
+          "target": "campo-nome",
+          "data_key": "person_name"
+        },
+        {
+          "n": 5,
+          "action": "fill",
+          "target": "campo-email",
+          "data_key": "email"
+        },
+        {
+          "n": 6,
+          "action": "click",
+          "target": "inscrever"
+        },
+        {
+          "n": 7,
+          "action": "assert_visible",
+          "target": "mensagem-sucesso-inscricao"
+        },
+        {
+          "n": 8,
+          "action": "assert_text",
+          "target": "mensagem-sucesso-inscricao",
+          "text": "Inscrição confirmada."
+        }
+      ]
+    },
+    {
+      "id": "J-003",
+      "title": "Validar campos obrigatórios do evento",
+      "actor": "Organizadora de eventos",
+      "stories": [
+        "US-001"
+      ],
+      "reqs": [
+        "REQ-003"
+      ],
+      "steps": [
+        {
+          "n": 1,
+          "action": "open_screen",
+          "screen": "/"
+        },
+        {
+          "n": 2,
+          "action": "click",
+          "target": "novo-evento"
+        },
+        {
+          "n": 3,
+          "action": "assert_visible",
+          "target": "titulo-novo-evento"
+        },
+        {
+          "n": 4,
+          "action": "fill",
+          "target": "campo-titulo",
+          "data_key": "empty"
+        },
+        {
+          "n": 5,
+          "action": "fill",
+          "target": "campo-data",
+          "data_key": "empty"
+        },
+        {
+          "n": 6,
+          "action": "fill",
+          "target": "campo-vagas",
+          "data_key": "quantity_zero"
+        },
+        {
+          "n": 7,
+          "action": "click",
+          "target": "salvar-evento"
+        },
+        {
+          "n": 8,
+          "action": "wait_for",
+          "target": "aviso-validacao"
+        },
+        {
+          "n": 9,
+          "action": "assert_text",
+          "text": "Informe o título do evento."
+        },
+        {
+          "n": 10,
+          "action": "assert_text",
+          "text": "Informe a data do evento."
+        },
+        {
+          "n": 11,
+          "action": "assert_text",
+          "text": "O número de vagas deve ser um inteiro maior que zero."
+        }
+      ]
+    },
+    {
+      "id": "J-004",
+      "title": "Recusar inscrição repetida com o mesmo e-mail",
+      "actor": "Participante",
+      "stories": [
+        "US-002"
+      ],
+      "reqs": [
+        "REQ-004"
+      ],
+      "steps": [
+        {
+          "n": 1,
+          "action": "open_screen",
+          "screen": "/"
+        },
+        {
+          "n": 2,
+          "action": "click",
+          "target": "evento-link-3"
+        },
+        {
+          "n": 3,
+          "action": "assert_visible",
+          "target": "evento-titulo"
+        },
+        {
+          "n": 4,
+          "action": "fill",
+          "target": "campo-nome",
+          "data_key": "person_name"
+        },
+        {
+          "n": 5,
+          "action": "fill",
+          "target": "campo-email",
+          "data_key": "email"
+        },
+        {
+          "n": 6,
+          "action": "click",
+          "target": "inscrever"
+        },
+        {
+          "n": 7,
+          "action": "assert_visible",
+          "target": "mensagem-sucesso-inscricao"
+        },
+        {
+          "n": 8,
+          "action": "fill",
+          "target": "campo-nome",
+          "data_key": "person_name"
+        },
+        {
+          "n": 9,
+          "action": "fill",
+          "target": "campo-email",
+          "data_key": "email"
+        },
+        {
+          "n": 10,
+          "action": "click",
+          "target": "inscrever"
+        },
+        {
+          "n": 11,
+          "action": "assert_visible",
+          "target": "mensagem-erro"
+        },
+        {
+          "n": 12,
+          "action": "assert_text",
+          "target": "mensagem-erro",
+          "text": "Este e-mail já está inscrito neste evento."
+        }
+      ]
+    }
+  ]
+}

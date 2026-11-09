@@ -1,0 +1,121 @@
+{
+  "v": 1,
+  "journeys": [
+    {
+      "id": "J-001",
+      "title": "Criar um evento",
+      "actor": "Organizadora de eventos",
+      "stories": [
+        "US-001"
+      ],
+      "reqs": [
+        "REQ-001"
+      ],
+      "steps": [
+        {
+          "n": 1,
+          "action": "open_screen",
+          "screen": "/"
+        },
+        {
+          "n": 2,
+          "action": "assert_visible",
+          "target": "titulo-lista"
+        },
+        {
+          "n": 3,
+          "action": "click",
+          "target": "novo-evento"
+        },
+        {
+          "n": 4,
+          "action": "assert_visible",
+          "target": "titulo-novo-evento"
+        },
+        {
+          "n": 5,
+          "action": "fill",
+          "target": "campo-titulo",
+          "data_key": "text_short"
+        },
+        {
+          "n": 6,
+          "action": "fill",
+          "target": "campo-data",
+          "data_key": "date_iso"
+        },
+        {
+          "n": 7,
+          "action": "fill",
+          "target": "campo-local",
+          "data_key": "text_short"
+        },
+        {
+          "n": 8,
+          "action": "fill",
+          "target": "campo-vagas",
+          "data_key": "integer_small"
+        },
+        {
+          "n": 9,
+          "action": "click",
+          "target": "salvar-evento"
+        },
+        {
+          "n": 10,
+          "action": "assert_visible",
+          "target": "mensagem-sucesso"
+        },
+        {
+          "n": 11,
+          "action": "assert_text",
+          "target": "mensagem-sucesso",
+          "text": "Evento criado com sucesso."
+        },
+        {
+          "n": 12,
+          "action": "assert_visible",
+          "target": "evento-titulo"
+        }
+      ]
+    },
+    {
+      "id": "J-099",
+      "title": "OPCIONAL, falha de propósito: exportar inscritos em CSV (recurso que não existe)",
+      "actor": "Organizadora de eventos",
+      "stories": [
+        "US-009"
+      ],
+      "reqs": [
+        "REQ-009"
+      ],
+      "steps": [
+        {
+          "n": 1,
+          "action": "open_screen",
+          "screen": "/"
+        },
+        {
+          "n": 2,
+          "action": "click",
+          "target": "evento-link-1"
+        },
+        {
+          "n": 3,
+          "action": "assert_visible",
+          "target": "evento-titulo"
+        },
+        {
+          "n": 4,
+          "action": "click",
+          "target": "exportar-csv"
+        },
+        {
+          "n": 5,
+          "action": "assert_visible",
+          "target": "arquivo-csv-pronto"
+        }
+      ]
+    }
+  ]
+}
